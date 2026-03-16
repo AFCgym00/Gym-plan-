@@ -1,0 +1,166 @@
+<style>
+.afc-pricing {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.afc-pricing .plan {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.afc-pricing .plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.afc-pricing .plan.special {
+  border: 2px solid #e63946;
+  background: #fff0f0;
+  animation: pop 1s ease-in-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.afc-pricing .plan h3 {
+  margin-bottom: 10px;
+}
+
+.afc-pricing .price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #e63946;
+  margin: 10px 0;
+}
+
+.afc-pricing .plan ul {
+  list-style: none;
+  padding: 0;
+}
+
+.afc-pricing .plan li {
+  margin: 8px 0;
+}
+
+.afc-pricing .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.afc-pricing .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.afc-pricing .whatsapp {
+  background: #25D366;
+  margin-left: 5px;
+}
+
+.afc-pricing .whatsapp:hover {
+  background: #1DA851;
+}
+
+@media (max-width: 600px) {
+  .afc-pricing .plan {
+    width: 90%;
+    padding: 15px;
+  }
+  .afc-pricing .price {
+    font-size: 24px;
+  }
+}
+</style>
+
+<h2 style="text-align:center;">AFC Gym Membership Plans</h2>
+
+<div class="afc-pricing">
+
+  <div class="plan">
+    <h3>Strength Training</h3>
+    <div class="price" data-price="1200">₹0</div>
+    <ul>
+      <li>1 Month – ₹1200</li>
+      <li>3 Months – ₹2800</li>
+      <li>6 Months – ₹5000</li>
+      <li>12 Months – ₹9000</li>
+    </ul>
+    <a class="btn" href="#signup">Join Now</a>
+    <a class="btn whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+  </div>
+
+  <div class="plan">
+    <h3>Strength + Cardio</h3>
+    <div class="price" data-price="1800">₹0</div>
+    <ul>
+      <li>1 Month – ₹1800</li>
+      <li>3 Months – ₹4000</li>
+      <li>6 Months – ₹8000</li>
+      <li>12 Months – ₹12000</li>
+    </ul>
+    <a class="btn" href="#signup">Join Now</a>
+    <a class="btn whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+  </div>
+
+  <div class="plan">
+    <h3>Personal Training</h3>
+    <div class="price" data-price="8000">₹0</div>
+    <ul>
+      <li>1 Month Personal Training</li>
+      <li>Customized Workout Plan</li>
+      <li>Trainer Guidance</li>
+    </ul>
+    <a class="btn" href="#signup">Join Now</a>
+    <a class="btn whatsapp" href="https://wa.me/917786888111" target="_blank">WhatsApp</a>
+  </div>
+
+  <div class="plan special">
+    <h3>Eid Special Offer</h3>
+    <div class="price" data-price="8000">₹0</div>
+    <ul>
+      <li>1 Year Membership</li>
+      <li>Regular Price ₹12000</li>
+      <li>Limited Time Offer</li>
+    </ul>
+    <a class="btn" href="#signup">Join Now</a>
+    <a class="btn whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+  </div>
+
+</div>
+
+<script>
+// Animate price counters
+document.querySelectorAll('.afc-pricing .price').forEach(priceEl => {
+  let target = parseInt(priceEl.dataset.price);
+  let current = 0;
+  let step = Math.ceil(target / 50); // adjust speed
+  let interval = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      priceEl.textContent = `₹${target}`;
+      clearInterval(interval);
+    } else {
+      priceEl.textContent = `₹${current}`;
+    }
+  }, 20);
+});
+</script>
